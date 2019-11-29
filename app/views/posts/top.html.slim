@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    title
+      | ShareInfo
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body.bg-secondary
+    .app-title.navbar.fixed-top.navbar-expand-md.navbar-dark.bg-dark role="navigation"
+      = link_to "ShareInfo", { controller: :posts, action: :top }, class: 'navbar-brand'
+      ul.nav.ml-auto
+        -if current_user
+          li = link_to '投稿一覧', posts_path, class: 'text-white mr-3'
+          li = link_to '新規投稿', new_post_path, class: 'text-white mr-3'
+          li = link_to 'マイユーザー',"users/#{current_user.id}", class: 'text-white mr-3'
+          li = link_to 'ユーザー一覧', users_path, class: 'text-white mr-3'
+          li = link_to 'ログアウト', logout_path, method: :delete, class: 'text-white mr-3'
+        -else
+          li = link_to 'アカウントを作る', new_user_path, class: 'text-white mr-3'
+          li = link_to 'ログイン（テストユーザーでログインできます）', login_path, class: 'text-white mr-3'
+    #carousel.carousel.slide data-ride="carousel"
+      ol.carousel-indicators
+        li data-target="#carousel" data-slide-to="0" class="active"
+        li data-target="#carousel" data-slide-to="1"
+        li data-target="#carousel" data-slide-to="2"
+      .carousel-inner
+        .carousel-item.active
+          = image_tag 'slide1.png', class:"d-block w-100"
+          .carousel-caption.d-done.d-mg-block
+            h1 ShareInfo
+            h5.font-weight-light 情報を共有しよう。
+        .carousel-item
+          = image_tag 'slide2.png', class:"d-block w-100"
+          .carousel-caption.d-done.d-mg-block
+            h3.font-weight-light ShareInfoは誰でも簡単に投稿できる<br>情報共有サービスです。
+        .carousel-item
+          = image_tag 'slide3.png', class:"d-block w-100"
+          .carousel-caption.d-done.d-mg-block
+            h3.font-weight-light 今すぐ新規ユーザー登録しよう。
+        a.carousel-control-prev href="#carousel" role="button" data-slide="prev"
+          .carousel-control-prev-icon aria-hidden="true"
+          .sr-only 前に戻る
+        a.carousel-control-next href="#carousel" role="button" data-slide="next"
+          .carousel-control-next-icon area-hidden="true"
+          .sr-only 次に送る

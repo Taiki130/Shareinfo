@@ -1,0 +1,11 @@
+h1 ユーザー一覧
+.row.mt-3
+  - @user.each do |user|
+    .card.col-sm-4
+      -if user.image.attached?
+        = image_tag @user.image, class: 'card-img-top mt-2'
+      -else
+        = image_tag 'slide2.png', class: 'card-img-top mt-2'
+      .card-body.bg-light
+        h3.card-text = user.name
+        = link_to '詳細', user, class: 'btn btn-outline-primary justify-content-end'

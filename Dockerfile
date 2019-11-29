@@ -6,6 +6,8 @@ RUN apt-get update -qq && apt-get install -y \
     nodejs \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+ && apt-get install -y nodejs
 RUN gem install bundler
 WORKDIR /tmp
 ADD Gemfile Gemfile

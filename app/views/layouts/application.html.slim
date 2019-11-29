@@ -2,12 +2,25 @@ doctype html
 html
   head
     title
-      | Shareinfo
+      | ShareInfo
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-      .navbar-brand Shareinfo
-    .container
-    = yield
+  body.bg-secondary
+    .app-title.navbar.fixed-top.navbar-expand-md.navbar-dark.bg-dark role="navigation"
+      = link_to "ShareInfo", { controller: :posts, action: :top }, class: 'navbar-brand'
+      ul.nav.ml-auto
+        -if current_user
+          li = link_to '投稿一覧', posts_path, class: 'text-white mr-3'
+          li = link_to '新規投稿', new_post_path, class: 'text-white mr-3'
+          li = link_to 'マイユーザー', "users/#{current_user.id}", class: 'text-white mr-3'
+          li = link_to 'ユーザー一覧', users_path, class: 'text-white mr-3'
+          li = link_to 'ログアウト', logout_path, method: :delete, class: 'text-white mr-3'
+        -else
+          li = link_to 'アカウントを作る', new_user_path, class: 'text-white mr-3'
+          li = link_to 'ログイン（テストユーザーでログインできます）', login_path, class: 'text-white mr-3'
+
+    .container.mt-1
+      - if flash.notice.present?
+        .alert.alert-success= flash.notice
+      = yield
