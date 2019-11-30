@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:edit, :update, :destroy]
   skip_before_action :login_required, only: [:top, :index, :show]
   def top
     render layout: false
@@ -11,6 +11,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @comments = @post.comments.all
+    @comment = current_user.comments.build
   end
 
   def new
