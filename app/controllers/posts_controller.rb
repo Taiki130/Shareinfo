@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-  before_action :set_post, only: [:edit, :update, :destroy]
-  skip_before_action :login_required, only: [:top, :index, :show]
+  before_action :set_post, only: %i[edit update destroy]
+  skip_before_action :login_required, only: [:top]
   def top
     render layout: false
   end
@@ -23,23 +25,22 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save!
-      redirect_to posts_url, notice: "投稿が完了しました。"
+      redirect_to posts_url, notice: '投稿が完了しました。'
     else
       reneder :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @post.update!
-    redirect_to posts_url, notice: "投稿を編集しました。"
+    redirect_to posts_url, notice: '投稿を編集しました。'
   end
 
   def destroy
     @post.destroy
-    redirect_to posts_url, notice: "投稿を削除しました。"
+    redirect_to posts_url, notice: '投稿を削除しました。'
   end
 
   private

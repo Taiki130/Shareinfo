@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe '投稿表示機能', type: :system do
   let(:user_a) { FactoryBot.create(:user, name: 'ユーザーA', email: 'a@example.com') }
   let(:user_b) { FactoryBot.create(:user, name: 'ユーザーB', email: 'b@example.com') }
-  let!(:post_a) { FactoryBot.create(:post, title: '最初の投稿', user: user_a)}
+  let!(:post_a) { FactoryBot.create(:post, title: '最初の投稿', user: user_a) }
 
   before do
     visit login_path

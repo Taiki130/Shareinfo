@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  skip_before_action :login_required, only: [:index, :show, :new, :create]
+  skip_before_action :login_required, only: %i[new create]
   def index
     @user = User.all.order(created_at: :desc)
   end
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_url(@user), notice: "ユーザーの新規登録が完了しました。"
+      redirect_to users_url(@user), notice: 'ユーザーの新規登録が完了しました。'
     else
       render :new
     end
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      redirect_to users_url(@user), notice: "ユーザーを更新しました。"
+      redirect_to users_url(@user), notice: 'ユーザーを更新しました。'
     end
   end
 
@@ -40,6 +42,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :image, :password, :password_confirmation)
   end
