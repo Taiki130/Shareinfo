@@ -7,6 +7,9 @@ h1 投稿一覧
       = f.search_field :title_cont, class: 'form-control'
   .form-group
     = f.submit class: 'btn btn-outline-light'
+.mb-3
+  = paginate @posts
+  = page_entries_info @posts
 
 .row
   - @posts.each do |post|

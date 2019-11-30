@@ -20,7 +20,7 @@ html
           li = link_to 'アカウントを作る', new_user_path, class: 'text-white mr-3'
           li = link_to 'ログイン（テストユーザーでログインできます）', login_path, class: 'text-white mr-3'
 
-    .container.mt-1
+    .container.mt-5.pt-3
       - if flash.notice.present?
-        .alert.alert-success= flash.notice
+        .alert.alert-info= flash.notice
       = yield

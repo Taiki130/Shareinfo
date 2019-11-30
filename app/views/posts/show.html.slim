@@ -1,4 +1,4 @@
-.row.mt-5.pt-5
+.row.mt-5
   .col-md-12
     .media.bg-light.px-2.py-3
       = image_tag @post.user.image, class: 'icon-size mr-3 img-thumbnail'
@@ -23,7 +23,7 @@
           = image_tag 'icon.png', class: 'icon-size mr-3 img-thumbnail'
         .media-body
           h5= link_to comment.user.name, user_path(comment.user.id), class:'text-dark'
-          p= comment.content
+          p= simple_format(h(comment.content), {}, sanitize: false, wrapper_tag: "div")
           = link_to '削除', post_comment_path(@post, comment), method: :delete, class: 'btn btn-outline-danger' if current_user == comment.user || current_user == @post.user
 
     .bg-light.px-5
