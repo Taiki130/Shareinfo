@@ -8,3 +8,9 @@ h1.mt-5.pt-2 ログイン
     = f.label :password, 'パスワード'
     = f.password_field :password, class: 'form-control', id: 'session_password'
   = f.submit 'ログインする', class: 'btn btn-dark'
+
+= form_with scope: :session, local: true do |f|
+  .form_group
+    = f.hidden_field :email, value: 'test_user@shareinfo.com'
+    = f.hidden_field :password, value: 'password'
+  = f.submit 'テストログイン', class: 'btn btn-dark mt-3'
