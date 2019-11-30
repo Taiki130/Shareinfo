@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @q = current_user.posts.ransack(params[:q])
+    @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).order(:updated_at)
   end
 

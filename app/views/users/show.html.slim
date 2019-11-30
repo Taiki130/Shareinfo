@@ -4,7 +4,7 @@ table.table.table-hover
   tbody
     tr
       th プロフィール画像：
-      td= image_tag 'slide2.png', class: 'image-size'
+      td= image_tag @user.image, class: 'image-size' if @user.image.attached?
     tr
       th ユーザーネーム：
       td= @user.name
