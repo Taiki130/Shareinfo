@@ -12,3 +12,6 @@ h1 ユーザー一覧
       .card-body.bg-light
         h3.card-text = user.name
         = link_to '詳細', user, class: 'btn btn-outline-primary justify-content-end'
+.mt-3
+  = paginate @users
+  = page_entries_info @users

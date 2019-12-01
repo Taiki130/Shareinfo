@@ -3,7 +3,7 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: %i[new create]
   def index
-    @users = User.order(:updated_at).page(params[:page]).per(15)
+    @users = User.order(updated_at: :desc).page(params[:page]).per(15)
   end
 
   def show

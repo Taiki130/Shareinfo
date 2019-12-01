@@ -31,3 +31,6 @@ h1 投稿一覧
         p.card-text = truncate(post.description, length: 35, omission: '...') do
           = link_to '続き', post
         = link_to '詳細', post, class: 'btn btn-outline-primary'
+.mt-3.
+  = paginate @posts
+  = page_entries_info @posts
