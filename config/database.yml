@@ -18,14 +18,14 @@ development:
   database: myapp_development
   username: root
   password: ramadan
-  host: <%= ENV['DB_HOST'] %>
+  host: db
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
   database: myapp_test
-  host: <%= ENV['DB_HOST'] %>
+  host: db
   username: root
   password: ramadan
   socket: /tmp/mysql.sock
