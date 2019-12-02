@@ -20,7 +20,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ramadan
       MYSQL_DATEBASE: root
-      MYSQL_PASSWORD: ramadan
     ports:
       - '3306:3306'
     volumes:
