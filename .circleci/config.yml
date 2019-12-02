@@ -57,6 +57,7 @@ jobs:
       - run:
           name: Rspec
           command: bundle exec rspec
+          
   build:
     docker:
       - image: circleci/ruby:2.5-node-browsers-legacy
