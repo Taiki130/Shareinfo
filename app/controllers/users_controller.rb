@@ -30,9 +30,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    if @user.update(user_params)
-      redirect_to users_url(@user), notice: 'ユーザーを更新しました。'
-    end
+    redirect_to users_url(@user), notice: 'ユーザーを更新しました。' if @user.update(user_params)
   end
 
   def destroy

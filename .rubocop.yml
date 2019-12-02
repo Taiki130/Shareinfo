@@ -33,3 +33,25 @@ Bundler/OrderedGems:
 
 Lint/ShadowedException:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/IdenticalConditionalBranches:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 160
+  Exclude:
+    - "db/migrate/*.rb"
+
+Metrics/MethodLength:
+  Max: 20
+  Exclude:
+    - "db/migrate/*.rb"
+
+Metrics/PerceivedComplexity:
+  Max: 8
