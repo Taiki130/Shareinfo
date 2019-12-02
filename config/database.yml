@@ -24,7 +24,7 @@ development:
 test:
   <<: *default
   database: myapp_test
-  socket: /tmp/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
 
 
 # As with config/secrets.yml, you never want to store sensitive information,
