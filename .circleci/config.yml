@@ -24,7 +24,7 @@ jobs:
       - save_cache:
           paths:
             - ./vendor/bundle
-            key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
       - run:
@@ -69,12 +69,6 @@ jobs:
             docker push ${ECR_DOMAIN}:latest
 workflows:
   version: 2
-  rubocop_rspec:
-    jobs:
-      - rubocop
-      - rspec:
-          requires:
-            - rubocop
   test:
     jobs:
       - build
