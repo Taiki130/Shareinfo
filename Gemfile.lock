@@ -277,6 +277,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  activesupport (~> 5.2.4)
   autoprefixer-rails
   bcrypt (~> 3.1.7)
   bootstrap
