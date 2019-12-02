@@ -11,23 +11,19 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  port: 3306
+  username: root
+  password: ramadan
+  host: db
 
 development:
   <<: *default
   database: myapp_development
-  username: root
-  password: ramadan
-  host: db
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
   database: myapp_test
-  host: db
-  username: root
-  password: ramadan
   socket: /tmp/mysql.sock
 
 
