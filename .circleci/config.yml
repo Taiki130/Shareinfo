@@ -36,7 +36,8 @@ jobs:
           MYSQL_HOST: localhost
       - image: circleci/mysql:5.7
         environment:
-          MYSQL_USER: root
+          MYSQL_USER: mysql
+          MYSQL_PASSWORD: ramadan
           MYSQL_DB: myapp_test
     working_directory: ~/repo
     steps:
