@@ -15,6 +15,7 @@ services:
       driver: none
     depends_on:
       - db
+    restart: unless-stopped 
   db:
     image: mysql:5.7
     environment:
