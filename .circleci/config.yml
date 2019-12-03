@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.5-node-browsers-legacy
+      - image: circleci/ruby:2.5-node-browsers
         environment:
           RAILS_ENV: test
           DB_HOST: 127.0.0.1
@@ -39,7 +39,7 @@ jobs:
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
               circleci tests split --split-by=timings)"
-            bundle exec rspec spec/system/posts_spec.rb spec/models/user_spec.rb\
+            bundle exec rspec spec/system/posts_spec.rb\
               --format progress \
               --out /tmp/test-results/rspec.xml \
               --format progress \
