@@ -6,10 +6,9 @@ jobs:
         environment:
         RAILS_ENV: test
         DB_HOST: 127.0.0.1
+        DB_USERNAME: root
+        DB_PASSWORD: ramadan
       - image: mysql:5.7
-        environment:
-          MYSQL_USER: root
-          MYSQL_ROOT_PASSWORD: ramadan
     working_directory: ~/repo
     steps:
       - checkout
