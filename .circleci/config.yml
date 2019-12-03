@@ -39,7 +39,7 @@ jobs:
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
               circleci tests split --split-by=timings)"
-            bundle exec rspec \
+            bundle exec rspec spec/system/posts_spec.rb models/user_spec.rb\
               --format progress \
               --out /tmp/test-results/rspec.xml \
               --format progress \
