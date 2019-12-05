@@ -37,6 +37,7 @@ gem 'autoprefixer-rails'
 gem 'io-like', '~>0.3.0'
 gem 'ransack'
 gem 'activesupport', '~>5.2.4'
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

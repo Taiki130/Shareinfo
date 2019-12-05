@@ -9,20 +9,19 @@ services:
       - .:/myapp
     environment:
       - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
-    depends_on:
-      - db
   selenium_chrome:
     image: selenium/standalone-chrome-debug
     logging:
       driver: none
     depends_on:
       - db
-    restart: unless-stopped
   db:
     image: mysql:5.7
     environment:
+      MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: ramadan
       MYSQL_DATEBASE: root
+      MYSQL_PASSWORD: ramadan
     ports:
       - '3306:3306'
     volumes:
