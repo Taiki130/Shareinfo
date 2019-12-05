@@ -50,7 +50,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara', '~> 3.17.0'
+  gem 'capybara'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
