@@ -1,5 +1,5 @@
 class LbController < ApplicationController
   def health
-    render text: 'ok'
+    render html: 'ok'
   end
 end
