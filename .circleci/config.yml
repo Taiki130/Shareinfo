@@ -85,7 +85,7 @@ jobs:
       - run:
           name: migration
           command: |
-            aws ecs run-task --cluster shareinfo-ecs-cluster --task-definition rails-migrate
+            aws ecs run-task --cluster shareinfo-ecs-cluster --task-definition shareinfo-service
 workflows:
   version: 2
   test:
