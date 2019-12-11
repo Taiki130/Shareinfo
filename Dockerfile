@@ -4,6 +4,7 @@ RUN apt-get update -qq && apt-get install -y \
     build-essential \
     mysql-client \
     nodejs \
+    vim \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
