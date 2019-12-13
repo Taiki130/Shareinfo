@@ -45,7 +45,7 @@ Rails.application.configure do
   config.assets.debug = true
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
