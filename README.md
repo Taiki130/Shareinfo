@@ -49,7 +49,7 @@ https://github.com/Taiki130/Shareinfo-terraform
 
 ## テスト
  * RSpec
-  * 単体テスト
+  * 単体テスト(model)
   * 統合テスト
 
 ## アーキテクチャ
