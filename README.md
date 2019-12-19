@@ -1,8 +1,7 @@
 # README
 
 ## Shareinfo
-![images]
-(https://github.com/Taiki130/Shareinfo/image.jpg)
+![image](https://user-images.githubusercontent.com/50824605/71142472-ce31e980-225a-11ea-9c8b-d08b8b0f795c.jpg)
 
 Shareinfoは情報共有webサービスです。就活用ポートフォリオとして作成しました。（PCでの閲覧推奨）
 
@@ -54,7 +53,6 @@ https://github.com/Taiki130/Shareinfo-terraform
   * 統合テスト
 
 ## アーキテクチャ
-![shareinfo-archtecture]
-(https://github.com/Taiki130/Shareinfo/shareinfo-archtecture.png)
+![shareinfo-archtecture](https://user-images.githubusercontent.com/50824605/71142436-be1a0a00-225a-11ea-891a-69f116e19407.png)
 
 Dockerコンテナで実行されるRailsアプリケーションをECSで管理し公開しました。GitHubとCirclCIを連携して、タスク定義、サービスの更新、migrationをし、masterブランチへのマージでデプロイを実行しています。Terraformでインフラのコード化を行いました。tfstateはS3に保存しています。
