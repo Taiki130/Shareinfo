@@ -3,5 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:comment) { FactoryBot.build(:comment) }
+  it 'contentがなければコメントできないこと' do
+    comment.content = nil
+    expect(comment).to be_invalid
+  end
 end

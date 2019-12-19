@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_url(@user), notice: 'ユーザーの新規登録が完了しました。'
+      redirect_to user_url(id: @user.id), notice: 'ユーザーの新規登録が完了しました。'
     else
       render :new
     end

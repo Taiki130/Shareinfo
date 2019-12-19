@@ -36,6 +36,8 @@ gem 'jquery-rails'
 gem 'autoprefixer-rails'
 gem 'io-like', '~>0.3.0'
 gem 'ransack'
+gem 'better_errors'
+gem "aws-sdk-s3", require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,7 +52,7 @@ end
 group :test do
   gem 'capybara', '~> 3.17.0'
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'webdrivers', '~> 3.0'
 end
 
 group :development do

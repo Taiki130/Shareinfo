@@ -1,0 +1,2 @@
+module LbHelper
+end

@@ -10,8 +10,9 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(session_params[:password])
       session[:user_id] = user.id
-      redirect_to posts_url, notice: 'ログインしました。'
+      redirect_to user_url(id: user.id), notice: 'ログインしました。'
     else
+      flash[:notice] = 'メールアドレスかパスワードが間違っています。'
       render :new
     end
   end

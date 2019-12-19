@@ -1,5 +1,5 @@
 class CreateComments < ActiveRecord::Migration[5.2]
-  def change
+  def up
     create_table :comments do |t|
       t.string :content
       t.references :user, foreign_key: true
@@ -7,5 +7,8 @@ class CreateComments < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+  end
+  def down
+    drop_table :comments
   end
 end

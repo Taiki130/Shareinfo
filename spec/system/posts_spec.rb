@@ -21,16 +21,19 @@ RSpec.describe '投稿表示機能', type: :system do
   describe '一覧表示機能' do
     context 'ユーザーAがログインしているとき' do
       let(:login_user) { user_a }
+      before do
+        visit posts_path
+      end
 
       it_behaves_like 'ユーザーAの投稿が表示される'
     end
 
     context 'ユーザーBがログインしているとき' do
       let(:login_user) { user_b }
-
-      it 'ユーザーAの投稿が表示される' do
-        expect(page).to have_content '最初の投稿'
+      before do
+        visit posts_path
       end
+      it_behaves_like 'ユーザーAの投稿が表示される'
     end
   end
 
