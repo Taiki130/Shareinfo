@@ -11,9 +11,9 @@ RSpec.describe Post, type: :model do
     post.title = nil
     expect(post).to be_valid
   end
-  it '内容が書かれていないと投稿できないこと' do
+  it '内容が書かれていなくても正常に投稿できること' do
     post.description = nil
-    expect(post).to be_invalid
+    expect(post).to be_valid
   end
   it 'タイトルが51字以上だと投稿できないこと' do
     post.title = 'f' * 51
