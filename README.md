@@ -50,7 +50,7 @@ https://github.com/Taiki130/Shareinfo-terraform
 ## テスト
  * RSpec
   * 単体テスト(model)
-  * 統合テスト
+  * 統合テスト(system)
 
 ## アーキテクチャ
 ![shareinfo-archtecture](https://user-images.githubusercontent.com/50824605/71142436-be1a0a00-225a-11ea-891a-69f116e19407.png)
