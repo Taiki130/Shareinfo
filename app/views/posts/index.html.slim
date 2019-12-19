@@ -1,0 +1,36 @@
+h1 投稿一覧
+
+= search_form_for @q, class: 'mb-5' do |f|
+  .form-group.row.mt-3
+    = f.label :title_cont, 'タイトル', class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.search_field :title_cont, class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-outline-light'
+.mb-3
+  = paginate @posts
+  = page_entries_info @posts
+
+.row
+  - @posts.each do |post|
+    .card.col-sm-4
+      h5.card-header
+        .media.bg-light
+          - if post.user.image.attached?
+            = image_tag post.user.image, class: 'icon-size mr-1 img-thumbnail'
+          - else
+            = image_tag 'icon.png', class: 'icon-size mr-1 img-thumbnail'
+          .media-body
+            h5.mt-2= link_to post.user.name, user_path(post.user.id), class:'text-dark'
+      - if post.image.attached?
+        = image_tag post.image, class:"card-img-top mt-2"
+      - else
+        = image_tag 'slide1.png', class:"card-img-top mt-2"
+      .card-body.bg-light
+        h4.card-title = post.title
+        p.card-text = truncate(post.description, length: 35, omission: '...') do
+          = link_to '続き', post
+        = link_to '詳細', post, class: 'btn btn-outline-primary'
+.mt-3.
+  = paginate @posts
+  = page_entries_info @posts

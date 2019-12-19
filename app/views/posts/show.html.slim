@@ -1,0 +1,32 @@
+.row.mt-5
+  .col-md-12
+    .media.bg-light.px-2.py-3
+      = image_tag @post.user.image, class: 'icon-size mr-3 img-thumbnail' if @post.user.image.attached?
+      .media-body
+        h5.mt-2= link_to @post.user.name, user_path(@post.user.id), class:'text-dark'
+    .bg-light.px-5.pb-5.pt-2
+      h1.pl-3= @post.title
+      .text-right
+        p= Post.human_attribute_name(:created_at)
+        p= @post.created_at
+      - if current_user == @post.user
+        .float-right.mb-5
+          = link_to '編集', edit_post_path, class:'btn btn-outline-primary mx-3'
+          = link_to '削除', @post, method: :delete, data: { confirm: "投稿を削除します。よろしいですか？"}, class: 'btn btn-outline-danger mr-2' if current_user == @post.user
+      p.pb-5 = simple_format(h(@post.description), {}, sanitize: false, wrapper_tag: "div")
+
+    - @comments.each do |comment|
+      .media.bg-light.px-2.py-3
+        - if comment.user.image.attached?
+          = image_tag comment.user.image, class: 'icon-size mr-3 img-thumbnail'
+        - else
+          = image_tag 'icon.png', class: 'icon-size mr-3 img-thumbnail'
+        .media-body
+          h5= link_to comment.user.name, user_path(comment.user.id), class:'text-dark'
+          p= simple_format(h(comment.content), {}, sanitize: false, wrapper_tag: "div")
+          = link_to '削除', post_comment_path(@post, comment), method: :delete, class: 'btn btn-outline-danger' if current_user == comment.user || current_user == @post.user
+
+    .bg-light.px-5
+      = form_with model: [@post, @comment], local: true do |f|
+        = f.text_area :content, rows: 3, class: 'form-control'
+        = f.submit 'コメントする', class: 'btn btn-dark mb-3 mt-2'

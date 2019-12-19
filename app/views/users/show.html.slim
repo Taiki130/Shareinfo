@@ -1,0 +1,15 @@
+h1.mt-5.pt-2 ユーザーの詳細
+
+table.table.table-hover
+  tbody
+    tr
+      th プロフィール画像：
+      td= image_tag @user.image, class: 'image-size' if @user.image.attached?
+    tr
+      th ユーザーネーム：
+      td= @user.name
+    tr
+      th メールアドレス：
+      td= @user.email
+= link_to '編集', edit_user_path, class: 'btn btn-outline-primary mr-3'
+= link_to '削除', @user, method: :delete, data: { confirm: "ユーザーを削除しますが、よろしいでしょうか？" }, class: 'btn btn-outline-danger'
