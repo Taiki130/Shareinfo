@@ -3,10 +3,11 @@
 ## Shareinfo
 ![image](https://user-images.githubusercontent.com/50824605/71142472-ce31e980-225a-11ea-9c8b-d08b8b0f795c.jpg)
 
-Shareinfoは情報共有webサービスです。就活用ポートフォリオとして作成しました。（PCでの閲覧推奨）
+Shareinfoは情報共有webサービスです。就活用ポートフォリオとして作成しました。
 
 ## リンク
 https://shareinfo.org
+（PCでの閲覧推奨）
 
 ログイン画面からテストユーザーログインができます。
 
